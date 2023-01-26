@@ -1,33 +1,5 @@
-import { useState } from "react";
+import { List } from "./components/List";
 
-export function App() {
-  const [newItem, setNewItem] = useState('');
-  const [list, setList] = useState(['Moisés', 'Besourinha', 'Gaia', 'Pirata', 'Florzinha'])
-
-  function addToList(){
-    setTimeout(()=> { //simular uma api
-      setList(state => [...state, newItem])
-    }, 500)
-  }
-
-  return (
-    <>
-      <input 
-        type="text"
-        placeholder="Novo item"
-        value={newItem} 
-        onChange={(e) => setNewItem(e.target.value)}
-      />
-
-      <button onClick={addToList}>
-        Adicionar
-      </button>
-
-      <ul>
-        {list.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    </>
-  )
+export function App(){
+  return <List initialItems={['Moisés', 'Geo', 'Besourinha', 'Gaia', 'Pirata', 'Florzinha']} />
 }
